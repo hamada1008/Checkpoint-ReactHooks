@@ -70,13 +70,15 @@ const Navbar = ({Search,setSearch,Rsearch,setRsearch, Genr, setGenr , status , s
         <img src={im} alt="logo" /> <span className="title">EGYWORST</span>
         </div>
 
+        <Addmovie 
+        staty={status}
+        setStaty={setStatus}/>
+
         <div className="filt">
         <input onChange={handlechange} type="text" placeholder="Enter a movie name" value={Search}/>
         </div>
         
-        <Addmovie 
-        staty={status}
-        setStaty={setStatus}/>
+        
 
         <div className="bygenre">
             
