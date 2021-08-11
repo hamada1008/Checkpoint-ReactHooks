@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState, useEffect} from 'react'
 import im from './catsu.png'
 import genre from './genres'
 import ReactStars from 'react-rating-stars-component'
@@ -9,7 +9,8 @@ import {Switch} from '@material-ui/core'
 
 const Navbar = ({Search,setSearch,Rsearch,setRsearch, Genr, setGenr , status , setStatus, dark, setDark}) => {
 
-    const [starsKey, setStarsKey] = useState(Math.random());
+    // const [starsKey, setStarsKey] = useState(Math.random());
+    // const [clic, setClic] = useState(" GenreClicked")
 
     function handlechange (event) {
         const newval = event.target.value
@@ -25,6 +26,7 @@ const Navbar = ({Search,setSearch,Rsearch,setRsearch, Genr, setGenr , status , s
      }
 
      function filtergenre(event) {
+        // setClic(" GenreClicked")
             const ger = event.target.value
             if (Genr.includes(ger) === false) {
             var nger = [...Genr , ger]
@@ -39,11 +41,13 @@ const Navbar = ({Search,setSearch,Rsearch,setRsearch, Genr, setGenr , status , s
      
 
      function destroy () {
-        setSearch('')
-        setGenr([])
-        setStatus(true)
-        setRsearch(0)
-        setStarsKey(Math.random())
+        // setSearch('')
+        // setGenr([])
+        // setStatus(true)
+        // setRsearch(0)
+        // setStarsKey(Math.random())
+        // setClic("")
+        window.location.reload();
     
     }
 
@@ -83,7 +87,7 @@ const Navbar = ({Search,setSearch,Rsearch,setRsearch, Genr, setGenr , status , s
         <div className="bygenre">
             
         
-        {genre.map( (item) => <button value={item} style={{}} onClick={filtergenre} className='filterGenre'>{item}</button> )}
+        {genre.map( (item) => <button value={item} onClick={filtergenre} className={"filterGenre"}>{item}</button> )}
         </div>
        
         <div className="starfilter">
@@ -91,7 +95,7 @@ const Navbar = ({Search,setSearch,Rsearch,setRsearch, Genr, setGenr , status , s
         <ReactStars
             value = {Rsearch}
             onChange = {starchanged}
-            key={starsKey}
+            // key={starsKey}
             size = "20"
         />        
        
